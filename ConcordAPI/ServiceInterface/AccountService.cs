@@ -16,10 +16,10 @@ namespace ConcordAPI.ServiceInterface
     {
         public int Id { get; set; }
         public string UserName { get; set; }
-        [Required]
         public string PrimaryPhone { get; set; }
         public string PrimaryEmail { get; set; }
         public string Password { get; set; }
+        //public Boolean PhoneValid
         public int CompanyId { get; set; }
         public string Token { get; set; }
     }
@@ -33,6 +33,8 @@ namespace ConcordAPI.ServiceInterface
 
     public class AccountService : Service
     {
+        public IAuthRepository authRepository { get; set; }
+
         public object Get(Account account)
         {
             return new AccountResponse() { Id = 1, Account = new Account { UserName = "", PrimaryEmail = "" } };
@@ -41,7 +43,15 @@ namespace ConcordAPI.ServiceInterface
         public object Post(Account account)
         {
             //TODO: flucient validations
-            return new AccountResponse() { Id = 1, Account = new Account { UserName = "", PrimaryEmail = ""} };
+            if (string.IsNullOrEmpty(account.PrimaryPhone))
+            {
+                throw new ArgumentNullException("Phone number could not be blank");
+            }
+            //create an user with PhoneNumber valid = false in DB
+            //authRepository.GetUserAuth();
+            //generate a new random number and send it out using SMS
+
+           return new AccountResponse() { Id = 1, Account = new Account { UserName = "", PrimaryEmail = ""} };
         }
     }
 }
