@@ -23,10 +23,10 @@ namespace ConcordAPI.ServiceInterface
         [Authenticate]
         public object Post(VerifyCode verifyRequest)
         {
-            var phone = verifyRequest;
+            var phone = verifyRequest.Phone;
             // generate random number and save it to cache for a short period.
-
-            return new VerifyCodeResponse() { VerifyResult = null, ReponseStatus = null};
+            
+            return new VerifyCodeResponse() { VerifyResult = !string.IsNullOrEmpty(phone), ReponseStatus = null};
         }
 
         public object Get(VerifyCode verifyRequest)

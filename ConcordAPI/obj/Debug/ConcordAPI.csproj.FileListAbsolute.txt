@@ -12,3 +12,8 @@ C:\Users\zhangcheng\Documents\GitHub\ConcordAPI_SS\ConcordAPI\bin\ServiceStack.x
 C:\Users\zhangcheng\Documents\GitHub\ConcordAPI_SS\ConcordAPI\bin\ServiceStack.Client.xml
 C:\Users\zhangcheng\Documents\GitHub\ConcordAPI_SS\ConcordAPI\bin\ServiceStack.Common.xml
 C:\Users\zhangcheng\Documents\GitHub\ConcordAPI_SS\ConcordAPI\bin\ServiceStack.Text.xml
+C:\Users\zhangcheng\Documents\GitHub\ConcordAPI_SS\ConcordAPI\bin\ServiceStack.OrmLite.dll
+C:\Users\zhangcheng\Documents\GitHub\ConcordAPI_SS\ConcordAPI\bin\ServiceStack.Redis.dll
+C:\Users\zhangcheng\Documents\GitHub\ConcordAPI_SS\ConcordAPI\bin\ServiceStack.Server.dll
+C:\Users\zhangcheng\Documents\GitHub\ConcordAPI_SS\ConcordAPI\bin\ServiceStack.Redis.xml
+C:\Users\zhangcheng\Documents\GitHub\ConcordAPI_SS\ConcordAPI\bin\ServiceStack.OrmLite.SqlServer.dll

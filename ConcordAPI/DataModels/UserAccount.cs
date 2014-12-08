@@ -6,20 +6,23 @@ using ServiceStack.Auth;
 using ServiceStack.OrmLite;
 using ServiceStack.DataAnnotations;
 
-namespace ConcordAPI.Models
+namespace ConcordAPI.DataModels
 {
     public class UserAccount:UserAuth
     {
         public string Password { get; set; }
         public string Pin { get; set; }
-        public DateTime Last_Login_Time { get; set; }
-        public int Created_By { get; set; }
+        [Alias("Last_Login_Time")]
+        public DateTime LastLoginTime { get; set; }
+        
+        public int CreatedBy { get; set; }
         public DateTime Create_On { get; set; }
         public int Last_Updated_By { get; set; }
         public DateTime Last_Updated_On { get; set;}
         public string Description { get; set; }
         public int Role { get; set; }
-        public int PersonId { get; set; }
+        //[References(typeof(Person))]
+        //public int PersonId { get; set; }
     }
 
     public class UserAccountDetail:UserAuthDetails

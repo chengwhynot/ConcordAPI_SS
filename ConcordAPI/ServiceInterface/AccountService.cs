@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using ConcordAPI.Models;
+using ConcordAPI.DataModels;
 using ServiceStack;
 using ServiceStack.Auth;
 using ServiceStack.DataAnnotations;
