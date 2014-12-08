@@ -64,6 +64,7 @@ namespace ConcordAPI
                 dbConnection.CreateTable(true, typeof(Vendor));
                 dbConnection.CreateTable(true, typeof(ServiceInterface.Bill));
                 dbConnection.CreateTable(true, typeof(Company));
+                dbConnection.CreateTable(true, typeof(Category));
             }
             userRepository.CreateUserAuth(new UserAccount
             {

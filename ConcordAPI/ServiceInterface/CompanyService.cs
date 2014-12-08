@@ -28,6 +28,8 @@ namespace ConcordAPI.ServiceInterface
 
         public object Post(Company dto)
         {
+            dto.Create_On = DateTime.Now;
+            dto.Last_Updated_On = DateTime.Now;
             return DbFactory.OpenDbConnection().Insert<Company>(dto,true);
         }
     }
