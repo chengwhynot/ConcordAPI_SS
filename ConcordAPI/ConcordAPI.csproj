@@ -94,14 +94,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\AuthorizationAttribute.cs" />
+    <Compile Include="DataModels\AddressBranching.cs" />
+    <Compile Include="DataModels\ModelBase.cs" />
+    <Compile Include="DataModels\UserAccount.cs" />
+    <Compile Include="ServiceInterface\AddressService.cs" />
     <Compile Include="ServiceInterface\CategoryService.cs" />
     <Compile Include="ServiceInterface\CompanyService.cs" />
     <Compile Include="ServiceInterface\InvoiceService.cs" />
     <Compile Include="ServiceInterface\ToDoService.cs" />
-    <Compile Include="DataModels\Bill.cs" />
-    <Compile Include="DataModels\ModelBase.cs" />
-    <Compile Include="DataModels\Person.cs" />
-    <Compile Include="DataModels\UserAccount.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -116,7 +116,6 @@
     <Compile Include="ServiceInterface\BillService.cs" />
     <Compile Include="Common\ConcordWebCredentialsAuthProvider.cs" />
     <Compile Include="ServiceInterface\VerifyCodeService.cs" />
-    <Compile Include="DataModels\Vendor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

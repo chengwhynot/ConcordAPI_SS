@@ -8,9 +8,9 @@ using ServiceStack.Auth;
 using ServiceStack.Caching;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
-using ConcordAPI.DataModels;
 using ServiceStack.Configuration;
 using ConcordAPI.ServiceInterface;
+using ConcordAPI.DataModels;
 
 namespace ConcordAPI
 {
@@ -18,7 +18,6 @@ namespace ConcordAPI
     {
         private const string db_conn_string = @"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\Concordya_Payee_DB.mdf;Initial Catalog=Concordya_Payee_DB;Integrated Security=True";
         //private const string db_conn_string = @"Data Source=tcp:tzmiztmqgc.database.chinacloudapi.cn,1433;Initial Catalog=ConcordAPI_db;User Id=cheng@tzmiztmqgc;Password=C0nC0rdya!;";
-
 
         public AppHost()
             : base("Concord API by SS", typeof(AppHost).Assembly)
@@ -46,8 +45,6 @@ namespace ConcordAPI
             //container.Resolve
             var userRepository = new OrmLiteAuthRepository<UserAccount, UserAccountDetail>(container.Resolve<IDbConnectionFactory>());
             container.Register<IUserAuthRepository>(userRepository);
-            
-
             InitialDbTables(container, userRepository);
         }
 
@@ -59,12 +56,12 @@ namespace ConcordAPI
             userRepository.DropAndReCreateTables();
             using (var dbConnection = container.Resolve<IDbConnectionFactory>().OpenDbConnection())
             {
-                dbConnection.CreateTable(true, typeof(Person));
-                dbConnection.CreateTable(true, typeof(Invoice));
-                dbConnection.CreateTable(true, typeof(Vendor));
-                dbConnection.CreateTable(true, typeof(ServiceInterface.Bill));
-                dbConnection.CreateTable(true, typeof(Company));
-                dbConnection.CreateTable(true, typeof(Category));
+                dbConnection.CreateTable<Bill>(true);
+                dbConnection.CreateTable<Invoice>(true);
+                dbConnection.CreateTable<AddressBranching>(true);
+                dbConnection.CreateTable<Address>(true);
+                dbConnection.CreateTable<Company>(true);
+                dbConnection.CreateTable<Category>(true);
             }
             userRepository.CreateUserAuth(new UserAccount
             {

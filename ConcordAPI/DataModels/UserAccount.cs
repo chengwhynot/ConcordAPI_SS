@@ -21,8 +21,6 @@ namespace ConcordAPI.DataModels
         public DateTime Last_Updated_On { get; set;}
         public string Description { get; set; }
         public int Role { get; set; }
-        //[References(typeof(Person))]
-        //public int PersonId { get; set; }
     }
 
     public class UserAccountDetail:UserAuthDetails

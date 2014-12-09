@@ -36,6 +36,5 @@ namespace ConcordAPI.ServiceInterface
 
             return new VerifyCodeResponse() { VerifyResult = phone==code };
         }
-
     }
 }

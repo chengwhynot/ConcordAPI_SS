@@ -11,23 +11,24 @@ using ServiceStack.OrmLite;
 namespace ConcordAPI.ServiceInterface
 {
     [Route("/invoice", "POST,GET")]
-    public class Invoice : ModelBase
+    public class Invoice
     {
-        [Alias("Invoice_Num")]
+        public string Id { get; set; }
+        public string Description { get; set; }
         public string InvoiceNum { get; set; }
-        public Bill Bill { get; set; }
-        [Alias("Bill_Date")]
+        public string BillNumber { get; set; }
         public DateTime? BillDate { get; set; }
-        [Alias("Due_Date")]
         public DateTime? DueDate { get; set; }
         public int Category { get; set; }
-        [Alias("Gl_Posting_Date")]
         public DateTime? GlPostingDate { get; set; }
         public decimal Amount { get; set; }
         public string Attachment { get; set; }
         public string State { get; set; }
         public string Reciept_Num { get; set; }
-
+        public DateTime CreatedOn { get; set; }
+        public int CreatedBy { get; set; }
+        public DateTime LastUpdatedOn { get; set; }
+        public int LastUpdatedBy { get; set; }
     }
 
     public class InvoiceService : Service
@@ -41,15 +42,15 @@ namespace ConcordAPI.ServiceInterface
                 dto.DueDate = (dto.DueDate == null ? DateTime.Now : dto.DueDate);
                 dto.BillDate = (dto.BillDate == null ? DateTime.Now : dto.BillDate);
                 dto.GlPostingDate = (dto.GlPostingDate == null ? DateTime.Now : dto.GlPostingDate);
-                dto.Create_On = DateTime.Now;
-                dto.Last_Updated_On = DateTime.Now;
+                dto.CreatedOn = DateTime.Now;
+                dto.LastUpdatedOn = DateTime.Now;
                 return dbConn.Insert<Invoice>(dto,true);
             }
         }
 
         public object Get(Invoice dto)
         {
-            return dbFactory.OpenDbConnection().LoadSingleById<Invoice>(dto.Id);
+            return Db.SingleById<Invoice>(dto.Id);
         }
     }
 }

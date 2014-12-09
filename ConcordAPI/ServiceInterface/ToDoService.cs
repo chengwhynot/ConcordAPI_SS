@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ServiceStack;
-using ConcordAPI.DataModels;
 
 namespace ConcordAPI.ServiceInterface
 {
-    public class ToDo : QueryBase<DataModels.Bill>
+    public class ToDo : QueryBase<Bill>
     {
-        public IEnumerable<DataModels.Bill> Bills { get; set; }
+        public IEnumerable<Bill> Bills { get; set; }
         public IEnumerable<Invoice> Invoices { get; set; }
     }
 
@@ -26,15 +25,14 @@ namespace ConcordAPI.ServiceInterface
         public ResponseStatus ResponseStatus { get; set; }
     }
 
-    [Route("/todo","GET")]
     public class ToDoService:Service
     {
-        public object Get()
+        public object Get(GetToDosByDate dto)
         {
             var todo = new ToDo() {
-                    Bills = new List<DataModels.Bill>(){
-                        new DataModels.Bill(){Id = 1, Amount = 100, State="New"}, 
-                        new DataModels.Bill(){Id = 2, Amount = 20, State="New"}
+                    Bills = new List<Bill>(){
+                        new Bill(){Id = 1, Amount = 100, State="New"}, 
+                        new Bill(){Id = 2, Amount = 20, State="New"}
                     },
                     Invoices = new List<Invoice>(){
                         new Invoice(){},
