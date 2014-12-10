@@ -17,7 +17,6 @@ namespace ConcordAPI
     public class AppHost : AppHostBase
     {
         private const string db_conn_string = @"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\Concordya_Payee_DB.mdf;Initial Catalog=Concordya_Payee_DB;Integrated Security=True";
-        //private const string db_conn_string = @"Data Source=tcp:tzmiztmqgc.database.chinacloudapi.cn,1433;Initial Catalog=ConcordAPI_db;User Id=cheng@tzmiztmqgc;Password=C0nC0rdya!;";
 
         public AppHost()
             : base("Concord API by SS", typeof(AppHost).Assembly)
